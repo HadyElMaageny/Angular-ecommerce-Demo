@@ -1,0 +1,10 @@
+<select class="form-select my-4" aria-label="Default select example" [(ngModel)]="selectedCatId">
+    <option value="0">All</option>
+    <option [value]="category.id" *ngFor="let category of categories">{{category.name}}</option>
+</select>
+
+<div class="bg-warning my-5">
+    <app-products [receivedCatId]="selectedCatId" (onTotalPriceChanged)="calcTotalPrice($event)"></app-products>
+</div>
+
+<h2>Total Price: {{totalOrderPrice}}</h2>
